@@ -1,5 +1,6 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
+const endPoint = 12; // 총 질문 수
 
 // 답변
 function addAnswer(answerText, qIdx) {
@@ -41,6 +42,9 @@ function goNext(qIdx) {
   for (let i in qnaList[qIdx].a) {
     addAnswer(qnaList[qIdx].a[i].answer, qIdx);
   }
+  // 진행 상태 바
+  var status = document.querySelector(".statusBar");
+  status.style.width = (100 / endPoint) * (qIdx + 1) + "%";
 }
 
 // 시작 button을 눌렀을 때 실행
